@@ -1,8 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import './index.css';
 
-function Greeting(){
-    return <h1>Hello React community</h1>;
+const Book = () => {
+  return (
+    <div className="book">
+      <All />
+      <All />
+      <All />
+    </div>
+  );
+};
+
+function All() {
+  return (
+    <div className="all">
+      <Title />
+      <Image />
+      <Author />
+    </div>
+  );
 }
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Greeting />);
+
+export default Book;
+
+const Title = () => <h1>Tittle component</h1>;
+const Image = () => <img className="image" src="https://m.media-amazon.com/images/I/510kE17yuNS.jpg" alt="Book Image" />
+const Author = () => <p>Author component</p>;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Book />);

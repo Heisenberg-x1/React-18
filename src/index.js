@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './index.css';
+import "./index.css";
 
 const Book = () => {
   return (
@@ -11,22 +11,23 @@ const Book = () => {
     </div>
   );
 };
-
+let header = 'Tittle component'
+const style1 = {
+  color: "green",
+  fontSize: "0.8rem",
+};
 function All() {
   return (
     <div className="all">
-      <Title />
-      <Image />
-      <Author />
+      <h1 style={{ color: "tomato", fontSize: "1.1rem" }}>{header}</h1>;
+      <img src="./images/img1.png" alt="img1" />      
+      <p style={style1}>Author component</p>;
     </div>
   );
 }
 
 export default Book;
 
-const Title = () => <h1>Tittle component</h1>;
-const Image = () => <img className="image" src="https://m.media-amazon.com/images/I/510kE17yuNS.jpg" alt="Book Image" />
-const Author = () => <p>Author component</p>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Book />);

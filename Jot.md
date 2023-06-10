@@ -17,17 +17,19 @@ The es7 extension has some useful snippets
 
 - Use React.Fragments to group all the elements w/o adding extra nodes
 
-`return <React.Fragment>
-
-<header>
-<ul className="border">
-<li>Home</li>
-<li>About</li>
-<li>Contact</li>
-</ul>
-</header>
-
-    </React.Fragment>;`
+```javascript
+return (
+  <React.Fragment>
+    <header>
+      <ul className="border">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </header>
+  </React.Fragment>
+);
+```
 
 <!-- *Naming convention and jsx rules -->
 
@@ -133,4 +135,57 @@ function All(props) {
   img="./images/book1.png"
   description="Random description of the book."
 />;
+```
+
+<!-- *CHILDREN PROPS -->
+
+-If we want to add extra elements to a specific component, we cannot do so by adding it to the main component. This will cause all the instances of the rendered component to have the extra elements, which are only needed in a specific instance. To achieve this we will need a specific type of props called CHILDREN PROPS.
+
+- First we add the extra element. e.g., a button, between the opening and closing tags of that specific instance of the component. {Note that when rendering components normally, we do not need a closing tag}
+
+```javascript
+<Laptop
+  name={laptop3.name}
+  img={laptop3.image}
+  price={laptop3.price}
+  description={laptop3.description}
+>
+  <p>This is an extra element</p>
+</Laptop>
+```
+
+- Then we add the children prop in the main component between curly braces as follows
+
+```javascript
+ <div className="buy-now" alert-dismissible>
+        <button>Buy Now</button>
+      </div>
+      {props.children}
+    </div>
+```
+
+<!-- *USING ARRAY MAP METHOD  -->
+
+- We can effectively use the array.Map method to render the component as many times as we have the dat. This is a great idea since it saves us the work of writing too much code repetition
+- First we put all the properties of the laptop inside an array, well, an Array of objects
+- Then we run a map function on the array. For each array Item we call the Laptop function. Since the function expects some props, we need to provide them.
+
+```javascript
+const Book = () => {
+  return (
+    <div className="laptop-Container">
+      <section>
+        {laptops.map((laptop) => (
+          <Laptop
+            key={laptop.name}
+            name={laptop.name}
+            image={laptop.image}
+            price={laptop.price}
+            description={laptop.description}
+          />
+        ))}
+      </section>
+    </div>
+  );
+};
 ```

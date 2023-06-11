@@ -9,6 +9,7 @@ let laptops = [
     price: "$1200",
     description:
       "HUAWEI MateBook 14S 2022 12th Gen Core Laptop 14.2 inch 2.5K Touch Screen 90Hz",
+      id: 1,
   },
 
   {
@@ -17,6 +18,7 @@ let laptops = [
     price: "$1900",
     description:
       "HUAWEI MateBook X Pro 2023 13th Gen Core Laptop 14.2 inch 3.1K Touch Screen",
+      id: 2,
   },
   {
     name: "HP Envy x360",
@@ -24,6 +26,7 @@ let laptops = [
     price: "$800",
     description:
       "NEW HP Envy x360 15.6' FHD Intel Core i5 256GB SSD 8GB RAM 2-in-1 Design Win 10",
+      id: 3,
   },
 ];
 const Book = () => {
@@ -32,7 +35,7 @@ const Book = () => {
       <section>
         {laptops.map((laptop) => (
           <Laptop
-            key={laptop.name}
+            key={laptop.id}
             name={laptop.name}
             image={laptop.image}
             price={laptop.price}
@@ -43,6 +46,7 @@ const Book = () => {
     </div>
   );
 };
+
 const style1 = {
   color: "green",
   fontSize: "01rem",
@@ -50,7 +54,7 @@ const style1 = {
   paddingTop: "10px",
 };
 function Laptop(props) {
-  const { name, image, price, description } = props;
+  const { name, image, price, description, id } = props;
   return (
     <div className="laptop">
       <h3>{name}</h3>

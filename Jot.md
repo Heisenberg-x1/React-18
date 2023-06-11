@@ -168,7 +168,7 @@ function All(props) {
 
 - We can effectively use the array.Map method to render the component as many times as we have the dat. This is a great idea since it saves us the work of writing too much code repetition
 - First we put all the properties of the laptop inside an array, well, an Array of objects
-- Then we run a map function on the array. For each array Item we call the Laptop function. Since the function expects some props, we need to provide them.
+- Then we run a map function on the array. For each array Item we return the laptop component. Since the function expects some props, we need to provide them.
 
 ```javascript
 const Book = () => {
@@ -189,3 +189,7 @@ const Book = () => {
   );
 };
 ```
+
+<!-- *THE KEY PROP IN JS -->
+-The key prop in js helps  React identify which object has been changed, added or removed. It should be a string or a number. 
+- We can create an array of objects, and add one more object for the Id, we will use this as the key

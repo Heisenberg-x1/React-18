@@ -54,7 +54,7 @@ const style1 = {
   paddingTop: "10px",
 };
 function Laptop(props) {
-  const { name, image, price, description, id } = props;
+  const { name, image, price, description} = props;
   return (
     <div className="laptop">
       <h3>{name}</h3>

@@ -3,3 +3,4 @@ let [first, second, ...rest] = array
 console.log(first)
 console.log(second)
 console.log(rest)
+console.log(3<2<1);
